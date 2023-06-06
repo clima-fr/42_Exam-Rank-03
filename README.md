@@ -38,4 +38,4 @@ To compile the code, uncomment the main function.
 
 # Exam Practice Tool
 
-Practice the exam just like you would in the real exam with this tool - https://github.com/JCluzet/42_EXAM
+Enhance your exam preparation by using this tool to simulate real exam conditions and practice effectively - https://github.com/JCluzet/42_EXAM
