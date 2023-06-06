@@ -1,8 +1,11 @@
 # Exam-Rank-03 General Informations
 
 - Enter the login and password on the examination computer: 
+    
     login: exam
+    
     password: exam
+    
 - Open the terminal, enter:
     examshell
 - Enter your username and your password
@@ -20,6 +23,7 @@ However, for the purpose of facilitating studying, my main function is commented
 I have also included a 'test' file that contains the first page of 'The Hitchhiker's Guide to the Galaxy'.
 
 To compile the code, uncomment the main function and use the following command: cc get_next_line.c -D BUFFER_SIZE=100
+
 To execute the program, use: ./a.out test.txt
 
 #  Ft_Printf
