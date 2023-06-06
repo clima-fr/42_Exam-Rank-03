@@ -6,56 +6,59 @@
 /*   By: clima-fr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 11:16:16 by clima-fr          #+#    #+#             */
-/*   Updated: 2023/05/31 11:16:30 by clima-fr         ###   ########.fr       */
+/*   Updated: 2023/06/06 16:07:05 by clima-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char *get_next_line(int fd)
+char	*get_next_line(int fd)
 {
-    int     i = 0;
-    int     rd = 0;
-    char    character;
-    char    *buffer = malloc(100000);
-    
-    if (BUFFER_SIZE <= 0)
-        return (NULL);
-    while ((rd = read(fd, &character, BUFFER_SIZE - BUFFER_SIZE + 1)) > 0)
-    {
-        buffer[i++] = character;
-        if (character == '\n')
-            break ;
-    }
-    buffer[i] =  '\0';
-    if (rd == -1 || i == 0 || (!buffer[i - 1] && !rd))
-        return (free(buffer), NULL);
-    return(buffer);
-}
+	int	i = 0;
+	char	character;
+	int	rd = read(fd, &character, BUFFER_SIZE - BUFFER_SIZE + 1);
+	char	*line = malloc(100000);
 
+	if (BUFFER_SIZE <= 0)
+	{
+		free(line);
+		return (NULL);
+	}
+	while (rd > 0)
+	{
+		line[i] = character;
+		i++;
+		if (character == '\n')
+			break ;
+		rd = read(fd, &character, BUFFER_SIZE - BUFFER_SIZE + 1);
+	}
+	line[i] = '\0';
+	if (rd == -1 || i == 0 || (line[i - 1] && rd == 0))
+	{
+		free(line);
+		return (NULL);
+	}
+	return (line);
+}
+/*
 #include <fcntl.h>
 #include <stdio.h>
 int	main(int argc, char **argv)
 {
 	int		fd;
-	int		line;
-	char	*string;
+	char	*line;
 
-	line = 1;
-	string = NULL;
 	if (argc == 2)
 	{
 		fd = open(argv[1], O_RDONLY);
-		string = get_next_line(fd);
-		while (string != NULL)
+		line = get_next_line(fd);
+		while (line != NULL)
 		{
-			printf("Line %d - %s ", line, string);
-			string = get_next_line(fd);
-			line++;
+			printf("%s", line);
+			free(line);
+			line = get_next_line(fd);
 		}
-		if (!string)
-			printf("Line %d - (null) EOF", line);
 		close(fd);
 	}
 	return (0);
-}
+}*/
