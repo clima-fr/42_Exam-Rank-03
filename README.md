@@ -1,4 +1,4 @@
-# Exam-Rank-03 General Informations
+# Exam-Rank-03 General Information
 
 - Enter the login and password on the examination computer: 
     
