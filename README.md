@@ -2,12 +2,14 @@
 
 - Enter the login and password on the examination computer: 
     
-    login: exam
+    login: `exam`
     
-    password: exam
+    password: `exam`
     
 - Open the terminal, enter:
-    examshell
+    
+    `examshell`
+    
 - Enter your username and your password
 - Exam Question: either get_next_line or ft_printf
 - You need to validate 1 question to get 100
@@ -22,9 +24,9 @@ The assignment only requires the 'get_next_line' function, excluding the main fu
 However, for the purpose of facilitating studying, my main function is commented out in the file.
 I have also included a 'test' file that contains the first page of 'The Hitchhiker's Guide to the Galaxy'.
 
-To compile the code, uncomment the main function and use the following command: cc get_next_line.c -D BUFFER_SIZE=100
+To compile the code, uncomment the main function and use the following command: `cc get_next_line.c -D BUFFER_SIZE=100`
 
-To execute the program, use: ./a.out test.txt
+To execute the program, use: `./a.out test.txt`
 
 #  Ft_Printf
 
