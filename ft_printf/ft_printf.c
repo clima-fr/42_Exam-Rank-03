@@ -16,7 +16,7 @@
 void	putstr(char *str, int *size)
 {
 	if (!str)
-	str = "(null)";
+		str = "(null)";
 	while (*str)
 	{
 		write(1, str, 1);
@@ -35,7 +35,7 @@ void	putnbr(long long int nbr, int base, int *size)
 		write(1, "-", 1);
 		nbr = nbr * -1;
 	}
-	if (nbr > base)
+	if (nbr >= base)
 		putnbr(nbr / base, base, size);
 	write (1, &digits[nbr % base], 1);
 	*size = *size + 1;
