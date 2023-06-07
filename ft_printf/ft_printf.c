@@ -54,9 +54,9 @@ int	ft_printf(const char *format, ...)
 			format++;
 			if (*format == 's')
 				putstr (va_arg(pointer, char *), &size);
-			if (*format == 'd')
+			else if (*format == 'd')
 				putnbr ((long long int)va_arg(pointer, int), 10, &size);
-			if (*format == 'x')
+			else if (*format == 'x')
 				putnbr ((long long int)va_arg(pointer, unsigned int), 16, &size);
 		}
 		else
@@ -66,6 +66,7 @@ int	ft_printf(const char *format, ...)
 		}
 		format++;
 	}
+	va_end(pointer);
 	return (size);
 }
 /*#include <stdio.h>
